@@ -1,0 +1,30 @@
+{
+  "name": "reckonq1",
+  "version": "1.0.0",
+  "description": "question 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skuxxdeluxxe/reckonq1.git"
+  },
+  "author": "Shantanu Padhye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skuxxdeluxxe/reckonq1/issues"
+  },
+  "homepage": "https://github.com/skuxxdeluxxe/reckonq1#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "request": "^2.88.2",
+    "retry-request": "^4.1.3"
+  }
+}
