@@ -8,8 +8,8 @@ const port = 9999;
 
 axiosRetry(axios, { retries: 3 });
 
-function range(startAt, length) { 
-  return [...Array(length - 1).keys()].map(i => i + startAt + 1); 
+function range(rangeInfo) { 
+  return [...Array(rangeInfo.upper - 1).keys()].map(i => i + rangeInfo.lower + 1); 
 }
 
 function calculateResult(number, divisorData) {
@@ -33,8 +33,8 @@ app.get("/", (req, res) => {
     console.log(rangeInfo.data);
     console.log(divisorInfo.data);
   
-    const numbers = range(rangeInfo.data.lower, rangeInfo.data.upper);
-
+    const numbers = range(rangeInfo.data);
+    
     var result = _.chain(numbers)
                     .map((number) => calculateResult(number, divisorInfo.data))
                     .map((divided) => `${divided.number}: ${divided.result}`)
