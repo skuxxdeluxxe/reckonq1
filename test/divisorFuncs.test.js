@@ -39,4 +39,17 @@ describe('Divisor Functions', () => {
             });
         });
     });
+
+    describe('Get Result', () => {
+        let outputText = 'Peppa'
+        let outputText2 = 'Pig'
+        let number = 3;
+        describe('when given range and divisor information', () => {
+            let range = { upper: 5, lower: 0 };
+            let divisor = { 'outputDetails': [ { 'divisor': 3, 'output': outputText } ] };
+            it('should return html text with the divisor result', () => {
+                expect(divisorFuncs.getResult(range, divisor)).to.equal('1: <br/>2: <br/>3: Peppa<br/>4: ');
+            });
+        });
+    });
 });

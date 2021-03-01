@@ -11,7 +11,17 @@ const calculateResult = (number, divisorData) => {
     return { 'number':number, 'result': result };
 }
 
+const getResult = (rangeInfo, divisorInfo) => {
+    const numbers = range(rangeInfo);
+    return  _.chain(numbers)
+                .map((number) => calculateResult(number, divisorInfo))
+                .map((divided) => `${divided.number}: ${divided.result}`)
+                .join('<br/>')
+                .value();
+}
+
 module.exports = {
     range: range,
-    calculateResult: calculateResult
+    calculateResult: calculateResult,
+    getResult: getResult
 }

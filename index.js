@@ -3,7 +3,6 @@ const axios = require('axios').default;
 const axiosRetry = require('axios-retry');
 const Promise = require("bluebird");
 const app = express();
-const _ = require('lodash');
 const divisorFuncs = require('./divisorFuncs.js');
 const port = 9999;
 
@@ -14,19 +13,7 @@ app.get("/", (req, res) => {
     axios.get('https://join.reckon.com/test1/rangeInfo'),
     axios.get('https://join.reckon.com/test1/divisorInfo')
   ])
-  .spread((rangeInfo, divisorInfo) => {
-    console.log(rangeInfo.data);
-    console.log(divisorInfo.data);
-  
-    const numbers = divisorFuncs.range(rangeInfo.data);
-
-    var result = _.chain(numbers)
-                    .map((number) => divisorFuncs.calculateResult(number, divisorInfo.data))
-                    .map((divided) => `${divided.number}: ${divided.result}`)
-                    .join('<br/>')
-                    .value();
-    res.send(result);
-  })
+  .spread((rangeInfo, divisorInfo) => { res.send(divisorFuncs.getResult(rangeInfo.data, divisorInfo.data)) });
 });
 
 
