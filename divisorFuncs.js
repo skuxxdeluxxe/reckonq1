@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const range = (rangeInfo) => [...Array(rangeInfo.upper - 1).keys()].map(i => i + rangeInfo.lower + 1);
+const range = (rangeInfo) => [...Array(rangeInfo.upper + 1).keys()].map(i => i + rangeInfo.lower);
   
 const calculateResult = (number, divisorData) => {
     var result = _.chain(divisorData.outputDetails)

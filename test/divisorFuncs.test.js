@@ -6,7 +6,7 @@ describe('Divisor Functions', () => {
         let range = { upper: 5, lower: 0 };
 
         it('should return a an array with a range of numbers', () => {
-            expect(divisorFuncs.range(range)).to.eql([1,2,3,4]);
+            expect(divisorFuncs.range(range)).to.eql([0,1,2,3,4,5]);
         });
     });
 
@@ -48,7 +48,7 @@ describe('Divisor Functions', () => {
             let range = { upper: 5, lower: 0 };
             let divisor = { 'outputDetails': [ { 'divisor': 3, 'output': outputText } ] };
             it('should return html text with the divisor result', () => {
-                expect(divisorFuncs.getResult(range, divisor)).to.equal('1: <br/>2: <br/>3: Peppa<br/>4: ');
+                expect(divisorFuncs.getResult(range, divisor)).to.equal('0: Peppa<br/>1: <br/>2: <br/>3: Peppa<br/>4: <br/>5: ');
             });
         });
     });
